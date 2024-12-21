@@ -1,8 +1,8 @@
-import { changeEmail } from "@/app/actions";
 import { getUserSession } from "@/shared/lib/get-user-session";
 import { prisma } from "@/prisma/prisma-clietn";
 import { hashSync } from "bcrypt";
 import { NextRequest, NextResponse } from "next/server";
+import { changeEmail } from "@/shared/lib/change-email";
 
 export async function GET() {
   const users = await prisma.user.findMany();
