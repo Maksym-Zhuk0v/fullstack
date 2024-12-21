@@ -1,12 +1,5 @@
 import { axiosInstance } from "./instance";
 
-export type IAppointment = {
-  fullName: string;
-  email: string;
-  typeOfDamage: string[];
-  dateTime: Date;
-};
-
 export const create = async (body: any) => {
   return await axiosInstance.post<any>("/appointment", body);
 };
