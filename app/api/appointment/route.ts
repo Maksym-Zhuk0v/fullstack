@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
     });
 
     if (!selectedTime) {
-      return "failed to find selected time";
+      return NextResponse.json("appointment created");
     }
 
     const code = Math.floor(100000 + Math.random() * 900000).toString();
@@ -67,7 +67,7 @@ export async function POST(req: NextRequest) {
           appointmentId: createdAppointment.id,
         },
       });
-      return "created Appointment";
+      return NextResponse.json("appointment created");
     } else {
       const createdAppointment = await prisma.appointment.create({
         data: {

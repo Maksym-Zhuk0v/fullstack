@@ -2,6 +2,7 @@ import { getUserSession } from "@/shared/lib/get-user-session";
 import { sendMail } from "@/shared/lib/send-mail";
 import { prisma } from "@/prisma/prisma-clietn";
 import { NextRequest, NextResponse } from "next/server";
+export const dynamic = "force-dynamic";
 
 export async function GET(req: NextRequest) {
   try {

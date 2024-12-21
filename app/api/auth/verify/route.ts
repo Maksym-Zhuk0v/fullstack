@@ -1,5 +1,6 @@
 import { prisma } from "@/prisma/prisma-clietn";
 import { NextRequest, NextResponse } from "next/server";
+export const dynamic = "force-dynamic";
 
 export async function GET(req: NextRequest) {
   try {
@@ -16,7 +17,7 @@ export async function GET(req: NextRequest) {
     });
 
     if (!verificationCode) {
-      return false;
+      return NextResponse.json("cannot find code", { status: 400 });
     }
 
     await prisma.user.update({

@@ -1,7 +1,8 @@
 import { prisma } from "@/prisma/prisma-clietn";
 import { NextRequest, NextResponse } from "next/server";
+export const dynamic = "force-dynamic";
 
-export async function GET(req: NextRequest) {
+export const GET = async (req: NextRequest) => {
   try {
     const code = req.nextUrl.searchParams.get("code");
 
@@ -12,7 +13,7 @@ export async function GET(req: NextRequest) {
     const verificationCode =
       await prisma.changeProrileVerificationCode.findFirst({
         where: {
-          code: code,
+          code,
         },
       });
 
@@ -60,21 +61,9 @@ export async function GET(req: NextRequest) {
       },
     });
 
-    await prisma.changeProrile.delete({
-      where: {
-        id: ChangeProrile.id,
-      },
-    });
-
-    await prisma.changeProrileVerificationCode.delete({
-      where: {
-        id: verificationCode.id,
-      },
-    });
-
     return NextResponse.redirect(new URL("/profile", req.url));
   } catch (error) {
     console.error(error);
-    console.log("[VERIFY_GET] Server error", error);
+    return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
-}
+};
