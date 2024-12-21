@@ -9,3 +9,17 @@ export async function GET() {
   });
   return NextResponse.json(stories);
 }
+
+// export async function POST(req: Request) {
+//   const body = await req.json();
+//   const story = await prisma.story.create({
+//     data: {
+//       items: {
+//         createMany: {
+//           data: body.items,
+//         },
+//       },
+//     },
+//   });
+//   return NextResponse.json(story);
+// }

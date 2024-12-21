@@ -16,6 +16,9 @@ const ResultStories = ({ className }: { className?: string }) => {
   React.useEffect(() => {
     async function fetchStories() {
       const stories = await Api.stories.getAll();
+      if (stories.length === 0) {
+        return <p>There is no stories</p>;
+      }
       setStories(stories);
     }
 

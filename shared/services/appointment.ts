@@ -7,7 +7,7 @@ export type IAppointment = {
   dateTime: Date;
 };
 
-export const create = async (body: IAppointment) => {
+export const create = async (body: any) => {
   return await axiosInstance.post<any>("/appointment", body);
 };
 
