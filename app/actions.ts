@@ -40,7 +40,7 @@ export async function registerUser(body: any) {
 
     await sendMail({
       to: createdUser.email,
-      text: `Here is your verification code: ${code} or just click the link to confirm http://localhost:3000/api/auth/verify?code=${code}`,
+      text: `Here is your verification code: ${code} or just click the link to confirm http://fullstack-2c96915k4-maks-projects-935572a9.vercel.app/api/auth/verify?code=${code}`,
       subject: "Подтверждение почты",
     });
 

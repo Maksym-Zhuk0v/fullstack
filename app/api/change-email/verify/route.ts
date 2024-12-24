@@ -68,7 +68,7 @@ export async function GET(req: NextRequest) {
     await sendMail({
       to: ChangeProrile?.newEmail,
       subject: "Подтверждение почты",
-      text: `Ваш код подтверждения: http://localhost:3000/api/approve-email/verify?code=${code}`,
+      text: `Ваш код подтверждения: http://fullstack-2c96915k4-maks-projects-935572a9.vercel.app/api/approve-email/verify?code=${code}`,
     });
 
     return NextResponse.redirect(new URL("/profile", req.url));
