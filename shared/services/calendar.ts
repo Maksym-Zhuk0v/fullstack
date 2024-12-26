@@ -26,6 +26,10 @@ export const edit = async (id: number, body: TEditCalendarBody) => {
   return (await axiosInstance.put<any>("/calendar/" + id, body)).data;
 };
 
+export const putWithEmail = async () => {
+  return (await axiosInstance.put<any>("/calendar")).data;
+};
+
 export const deleteMultiple = async (id: number[]) => {
   return (await axiosInstance.delete<any>("/calendar", { data: id })).data;
 };

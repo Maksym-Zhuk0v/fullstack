@@ -11,9 +11,7 @@ export const VerificationUserTemplate: React.FC<Props> = ({ code }) => (
     </p>
 
     <p>
-      <a
-        href={`http://fullstack-2c96915k4-maks-projects-935572a9.vercel.app/api/auth/verify?code=${code}`}
-      >
+      <a href={`http://localhost:3000/api/auth/verify?code=${code}`}>
         Подтвердить регистрацию
       </a>
     </p>

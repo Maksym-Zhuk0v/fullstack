@@ -6,7 +6,6 @@ import {
   MenubarItem,
   MenubarMenu,
   MenubarRadioGroup,
-  MenubarRadioItem,
   MenubarSeparator,
   MenubarShortcut,
   MenubarSub,
